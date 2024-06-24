@@ -1,7 +1,12 @@
-### IFSP Campinas - TADS - Desenvolvimento de Sistema Web
+## Desenvolvimento de Sistema Web
 **Prof. Carlos Beluzo | beluzo@ifsp.edu.br**
 
+##### **Este material foi gerado com auxílio de ferramenta de Inteligência Artificial (ChatGPT 4o). O seu conteúdo foi concebido, organizado e revisado pelo professor seguindo a ementa do plano da disciplina.*
+
+---
+
 ## Aula 1: Preparação do Ambiente de Desenvolvimento
+
 
 ### Introdução ao Curso
 Nesta aula inicial, damos as boas-vindas e compreendemos a importância do desenvolvimento web no cenário atual. Discutimos brevemente os objetivos do curso e como as habilidades que serão adquiridas são fundamentais para profissionais de Tecnologia da Informação.

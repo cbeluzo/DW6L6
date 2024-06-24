@@ -1,6 +1,10 @@
 ### IFSP Campinas - TADS - Desenvolvimento de Sistema Web
 **Prof. Carlos Beluzo | beluzo@ifsp.edu.br**
 
+##### **Este material foi gerado com auxílio de ferramenta de Inteligência Artificial (ChatGPT 4.0). O seu conteúdo foi concebido, organizado e revisado pelo professor seguindo a ementa do plano da disciplina.**
+
+---
+
 ## Aula 2: Conceitos Fundamentais em Sistemas Web
 
 ### Objetivo da Aula
@@ -111,12 +115,12 @@ Nesta segunda aula do curso de Desenvolvimento Web Avançado, vamos aprofundar n
    - Crie um novo projeto web (Dynamic Web Project) e escolha o servidor Apache Tomcat como destino.
 
 3. **Estrutura do Projeto:**
-   - O projeto web terá uma estrutura de diretórios padrão, incluindo:
+   - O projeto web terá uma estrutura de diretórios padrão, incluindo
+
+:
      - `src/main/java`: Onde você criará seus servlets e classes Java.
      - `src/main/webapp`: Contém arquivos JSP, HTML, CSS e recursos estáticos.
-     - `WEB-INF`: Pasta especial
-
- que contém o arquivo `web.xml` (configurações da aplicação).
+     - `WEB-INF`: Pasta especial que contém o arquivo `web.xml` (configurações da aplicação).
 
 4. **Crie um Servlet:**
    - Crie uma classe Java que estenda `HttpServlet`.
@@ -252,5 +256,3 @@ Em uma aplicação real, você precisaria adicionar tratamento de erros e possiv
 - Alterar o servlet para fazer uma autenticação de usuário e senha.
 
 ---
-
-Vou converter esse conteúdo em um arquivo Markdown para você.
