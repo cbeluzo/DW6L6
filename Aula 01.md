@@ -7,7 +7,6 @@
 
 ## Aula 1: Preparação do Ambiente de Desenvolvimento
 
-
 ### Introdução ao Curso
 Nesta aula inicial, damos as boas-vindas e compreendemos a importância do desenvolvimento web no cenário atual. Discutimos brevemente os objetivos do curso e como as habilidades que serão adquiridas são fundamentais para profissionais de Tecnologia da Informação.
 
