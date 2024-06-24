@@ -10,5 +10,11 @@ Desenvolvimento de Sistemas Web
 [Aula 04](https://github.com/cbeluzo/DW6L6/blob/main/Aula%2004.md)
 
 ---
-Listas e Exercícios
+Exemplos, Listas e Exercícios
+
+[Exemplos Sessão e Parâmetros](https://github.com/cbeluzo/DW6L6/blob/main/ExemplosSessoes.md)
+
+[Práticas de Java Servlets](https://github.com/cbeluzo/DW6L6/blob/main/PraticasServlets.md)
+
+[Práticas de JSP](https://github.com/cbeluzo/DW6L6/blob/main/PraticasJSP.md)
 
