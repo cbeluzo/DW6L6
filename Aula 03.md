@@ -1,10 +1,3 @@
-## Desenvolvimento de Sistema Web
-**Prof. Carlos Beluzo | beluzo@ifsp.edu.br**
-
-##### **Este material foi gerado com auxílio de ferramenta de Inteligência Artificial (ChatGPT 4o). O seu conteúdo foi concebido, organizado e revisado pelo professor seguindo a ementa do plano da disciplina.*
-
----
-
 ## Aula 3: Desenvolvimento de Sistemas Web usando JSP (Java Server Pages)
 
 ### Introdução ao Desenvolvimento Web com JEE e JSP
