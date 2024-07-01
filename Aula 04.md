@@ -1,9 +1,3 @@
-
-### IFSP Campinas - TADS - Desenvolvimento de Sistema Web
-**Prof. Carlos Beluzo | beluzo@ifsp.edu.br**
-
-##### **Este material foi gerado com auxílio de ferramenta de Inteligência Artificial (ChatGPT 4.0). O seu conteúdo foi concebido, organizado e revisado pelo professor seguindo a ementa do plano da disciplina.**
-
 ## Aula 4: Utilizando Redirecionamento e Despacho com Servlets e JSP
 
 ### Objetivo da Aula
