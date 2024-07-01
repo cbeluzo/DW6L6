@@ -1,9 +1,8 @@
 # Utilizando MySQL com Conector JDBC
 *Prof. Carlos Beluzo | beluzo@ifsp.edu.br*
 
-```txt
-Este material foi gerado com auxílio de ferramenta de Inteligência Artificial (ChatGPT 4o). O conteúdo foi concebido, organizado e revisado pelo professor seguindo a ementa do plano da disciplina.
-```
+Este material foi gerado com auxílio de ferramenta de Inteligência Artificial (ChatGPT 4o).O conteúdo foi concebido, organizado e revisado pelo professor seguindo a ementa do plano da disciplina.
+
 ---
 **Objetivo da Aula:**
 Nesta aula, os alunos aprenderão os conceitos fundamentais de bancos de dados relacionais e como conectar uma aplicação Java a um banco de dados MySQL utilizando o conector JDBC. A aula será dividida em três partes: conceitos fundamentais, exercícios de fixação e uma atividade prática que adapta o sistema de gerenciamento de serviços para clínica estética, desenvolvido anteriormente, para utilizar o banco de dados MySQL.
