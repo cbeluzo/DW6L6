@@ -9,6 +9,8 @@
 
 [Aula 04](https://github.com/cbeluzo/DW6L6/blob/main/Aula%2004.md)
 
+[Aula 05](https://github.com/cbeluzo/DW6L6/blob/main/Aula%2005.md)
+
 ---
 ## Exemplos, Listas e Exercícios
 
@@ -18,3 +20,4 @@
 
 [Práticas de JSP](https://github.com/cbeluzo/DW6L6/blob/main/PraticasJSP.md)
 
+[Atividade 1](https://github.com/cbeluzo/DW6L6/blob/main/Atividade%20001.md)
