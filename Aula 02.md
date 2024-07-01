@@ -1,11 +1,4 @@
-### IFSP Campinas - TADS - Desenvolvimento de Sistema Web
-**Prof. Carlos Beluzo | beluzo@ifsp.edu.br**
-
-##### **Este material foi gerado com auxílio de ferramenta de Inteligência Artificial (ChatGPT 4.0). O seu conteúdo foi concebido, organizado e revisado pelo professor seguindo a ementa do plano da disciplina.**
-
----
-
-## Aula 2: Conceitos Fundamentais em Sistemas Web
+# Aula 2: Conceitos Fundamentais em Sistemas Web
 
 ### Objetivo da Aula
 Nesta segunda aula do curso de Desenvolvimento Web Avançado, vamos aprofundar nossos conhecimentos nos conceitos essenciais relacionados a sistemas web. Discutiremos a evolução histórica das aplicações web e analisaremos casos de sucesso e fracasso no desenvolvimento web.
