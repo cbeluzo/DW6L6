@@ -1,16 +1,9 @@
-## Desenvolvimento de Sistema Web
-**Prof. Carlos Beluzo | beluzo@ifsp.edu.br**
+# Aula 1: Preparação do Ambiente de Desenvolvimento
 
-##### **Este material foi gerado com auxílio de ferramenta de Inteligência Artificial (ChatGPT 4o). O seu conteúdo foi concebido, organizado e revisado pelo professor seguindo a ementa do plano da disciplina.*
-
----
-
-## Aula 1: Preparação do Ambiente de Desenvolvimento
-
-### Introdução ao Curso
+## Introdução ao Curso
 Nesta aula inicial, damos as boas-vindas e compreendemos a importância do desenvolvimento web no cenário atual. Discutimos brevemente os objetivos do curso e como as habilidades que serão adquiridas são fundamentais para profissionais de Tecnologia da Informação.
 
-#### Perguntas:
+### Perguntas:
 1. **Qual é a importância do desenvolvimento web no cenário atual?**
    - O desenvolvimento web desempenha um papel crucial, pois a maioria das interações e serviços acontecem através da web. É a base para aplicativos, sites e sistemas modernos.
 
@@ -20,10 +13,10 @@ Nesta aula inicial, damos as boas-vindas e compreendemos a importância do desen
 3. **Como as habilidades adquiridas neste curso podem beneficiar profissionais de Tecnologia da Informação?**
    - As habilidades adquiridas permitirão aos profissionais desenvolver aplicações web robustas, alinhadas com as melhores práticas do mercado. Isso abrirá oportunidades de trabalho em projetos desafiadores e relevantes.
 
-### Instalação do JDK (Java Development Kit)
+## Instalação do JDK (Java Development Kit)
 Em seguida, iniciaremos com a instalação do JDK, peça fundamental para o desenvolvimento em Java. Passo a passo, abordaremos a instalação do JDK nas plataformas mais comuns: Windows, macOS e Linux. Esse passo é crucial para garantir que todos estejam com o ambiente Java corretamente configurado.
 
-#### Perguntas:
+### Perguntas:
 1. **Por que é necessário instalar o JDK para o desenvolvimento Java?**
    - O JDK é necessário porque fornece as ferramentas e bibliotecas essenciais para desenvolver e executar aplicativos Java. Inclui o compilador, bibliotecas padrão e outras utilidades.
 
@@ -33,10 +26,10 @@ Em seguida, iniciaremos com a instalação do JDK, peça fundamental para o dese
 3. **Como garantir que a instalação do JDK foi bem-sucedida?**
    - A instalação bem-sucedida pode ser verificada utilizando comandos como `java -version` no terminal ou prompt de comando. Isso exibirá a versão do Java instalada.
 
-### Configuração da IDE (Eclipse)
+## Configuração da IDE (Eclipse)
 A escolha de uma boa IDE é essencial. Apresentaremos o Eclipse, destacando suas vantagens e funcionalidades específicas para o desenvolvimento web. Você será guiado na instalação e configuração do Eclipse, garantindo que esteja pronto para começar a programar.
 
-#### Perguntas:
+### Perguntas:
 1. **Por que escolher o Eclipse como IDE para desenvolvimento web com Java?**
    - O Eclipse é escolhido por sua robustez, integração com frameworks populares, como Spring, e suas funcionalidades avançadas de refatoração de código.
 
@@ -46,10 +39,10 @@ A escolha de uma boa IDE é essencial. Apresentaremos o Eclipse, destacando suas
 3. **Quais são as funcionalidades destacadas do Eclipse que beneficiam desenvolvedores web?**
    - Funcionalidades como Code Assistance, que oferece sugestões inteligentes durante a codificação, e a integração com sistemas de controle de versão são destaque. Além disso, a IDE simplifica tarefas complexas de desenvolvimento.
 
-### Criação do Primeiro Projeto Web Simples
+## Criação do Primeiro Projeto Web Simples
 Vamos mergulhar na prática criando um projeto web básico. Abordaremos a estrutura inicial do projeto, explicando a função de cada componente. Será uma oportunidade para todos os participantes colocarem a mão na massa e começarem a programar desde o início.
 
-#### Perguntas:
+### Perguntas:
 1. **Qual é a importância da estrutura inicial do projeto web?**
    - A estrutura inicial define a organização do projeto, facilitando a manutenção, colaboração e compreensão do fluxo de trabalho.
 
@@ -59,10 +52,10 @@ Vamos mergulhar na prática criando um projeto web básico. Abordaremos a estrut
 3. **Por que é importante iniciar com um projeto simples?**
    - Iniciar com um projeto simples permite uma compreensão gradual dos conceitos, facilitando a transição para projetos mais complexos posteriormente.
 
-### Configuração e Execução do Servidor de Aplicação Local (Apache Tomcat)
+## Configuração e Execução do Servidor de Aplicação Local (Apache Tomcat)
 Entenderemos a importância de um servidor local para o desenvolvimento web e, mais especificamente, para projetos Java. Configuramos e executamos um servidor de aplicação local, como o Apache Tomcat, para testar nosso projeto.
 
-#### Perguntas:
+### Perguntas:
 1. **Por que é necessário um servidor de aplicação local para o desenvolvimento web?**
    - Um servidor local permite testar e depurar aplicações antes da implantação em servidores de produção, garantindo um ambiente controlado.
 
@@ -72,10 +65,10 @@ Entenderemos a importância de um servidor local para o desenvolvimento web e, m
 3. **Como verificar se o servidor local está funcionando corretamente?**
    - A verificação pode ser feita acessando a página inicial do Tomcat ou verificando mensagens no console de logs durante a execução.
 
-### Verificação do Ambiente de Desenvolvimento
+## Verificação do Ambiente de Desenvolvimento
 Por fim, realizaremos uma verificação do ambiente de desenvolvimento para garantir que tudo esteja corretamente configurado. Faremos isso através de um checklist prático e executando um exemplo simples para confirmar o funcionamento.
 
-#### Perguntas:
+### Perguntas:
 1. **Por que é crucial verificar se o ambiente de desenvolvimento está corretamente configurado?**
    - A verificação garante que todos os componentes necessários estejam prontos para o desenvolvimento, evitando problemas futuros.
 
@@ -85,10 +78,10 @@ Por fim, realizaremos uma verificação do ambiente de desenvolvimento para gara
 3. **Como executar um exemplo simples para confirmar o funcionamento do ambiente?**
    - Pode-se executar um exemplo simples, como imprimir "Hello, World!" no console, para confirmar que o ambiente está configurado corretamente.
 
-### Considerações Finais e Próximos Passos
+## Considerações Finais e Próximos Passos
 Concluiremos a aula com informações sobre materiais de referência, documentação adicional e desafios para explorar recursos mais avançados da IDE e do servidor local. Estaremos prontos para a próxima etapa do curso, agora com nossos ambientes de desenvolvimento devidamente preparados.
 
-#### Perguntas:
+### Perguntas:
 1. **O que os materiais de referência adicionais podem oferecer aos alunos?**
    - Materiais adicionais oferecem aprofundamento nos tópicos, fornecendo fontes adicionais de aprendizado e referência.
 
@@ -98,7 +91,7 @@ Concluiremos a aula com informações sobre materiais de referência, documenta�
 3. **Por que é importante definir desafios práticos para os alunos?**
    - Desafios práticos incentivam a aplicação prática dos conceitos aprendidos, promovendo uma compreensão mais profunda e consolidada do conhecimento.
 
-### Atividade Prática para a Aula 1: Preparação do Ambiente de Desenvolvimento
+## Atividade Prática para a Aula 1: Preparação do Ambiente de Desenvolvimento
 **Objetivo da Atividade:** Garantir que os alunos adquiram as habilidades necessárias para instalar e configurar o ambiente de desenvolvimento, incluindo a instalação do JDK, configuração da IDE (Eclipse), e criação e execução de um projeto web simples no servidor local.
 
 **Passos da Atividade:**
