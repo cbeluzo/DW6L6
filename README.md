@@ -20,4 +20,4 @@
 
 [Práticas de JSP](https://github.com/cbeluzo/DW6L6/blob/main/PraticasJSP.md)
 
-[Atividade 1](https://github.com/cbeluzo/DW6L6/blob/main/Atividade%20001.md)
+[Atividade 1](https://github.com/cbeluzo/DW6L6/blob/main/Atividade%201.md)
