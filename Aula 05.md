@@ -5,7 +5,7 @@ Nesta aula, os alunos aprenderão os conceitos fundamentais de bancos de dados r
 
 ---
 
-### Parte 1: Conceitos Fundamentais e Configuração
+## Parte 1: Conceitos Fundamentais e Configuração
 
 #### 1. Conceitos Fundamentais
 
@@ -197,7 +197,7 @@ public class DatabaseConnection {
 }
 ```
 
-### Parte 2: Exercícios de Fixação
+## Parte 2: Exercícios de Fixação
 
 **Exercício 1: Conectar ao Banco de Dados**
 - **Objetivo:** Escrever um programa Java que se conecte ao banco de dados MySQL e exiba uma mensagem de sucesso.
@@ -329,7 +329,7 @@ public class UpdateServicePrice {
 
 ---
 
-### Parte 3: Revisando Conceitos
+## Parte 3: Revisando Conceitos
 
 1. **O que é um banco de dados relacional e quais são suas principais características?**
    - **Resposta Esperada:** Um banco de dados relacional é um tipo de banco de dados que organiza os dados em tabelas, que podem ser relacionadas entre si através de chaves primárias e estrangeiras. Suas principais características incluem integridade referencial, normalização, suporte a transações, e uso de SQL para gerenciamento e manipulação de dados.
@@ -386,13 +386,7 @@ public class UpdateServicePrice {
       - **IntelliJ IDEA:**
         - File > Project Structure > Modules > Dependencies > + > JARs or directories > Selecione o `mysql-connector-java-<version>.jar`.
 
----
-
-### Conclusão
-
-Estas questões de revisão abrangem os conceitos fundamentais, benefícios, vantagens e padrões relacionados ao uso de bancos de dados em sistemas Java web. Elas ajudarão os alunos a consolidar seu entendimento sobre JDBC e a aplicação prática desses conceitos em projetos reais.
-
-### Parte 4: Atividade Prática
+## Parte 4: Atividade Prática
 
 **Enunciado:**
 Adapte o sistema de gerenciamento de serviços para clínica estética para utilizar conexão com banco de dados MySQL. Utilize os conceitos aprendidos e implemente a persistência dos dados nas tabelas `services` e `sessions`.
