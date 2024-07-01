@@ -1,5 +1,7 @@
-# DW6L6
-## Desenvolvimento de Sistemas Web
+# DW6L6 - Desenvolvimento de Sistemas Web
+Prof. Carlos Beluzo | beluzo@ifsp.edu.br
+
+*Este material foi gerado com auxílio de ferramenta de Inteligência Artificial (ChatGPT 4o). O seu conteúdo foi concebido, organizado e revisado pelo professor seguindo a ementa do plano da disciplina.
 
 [Aula 01: Introdução: Desvolvimento de Sistemas Web com Java](https://github.com/cbeluzo/DW6L6/blob/main/Aula%2001.md)
 
