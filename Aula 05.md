@@ -252,21 +252,38 @@ import java.sql.SQLException;
 import java.math.BigDecimal;
 
 public class InsertService {
-    public static void main(String[] args) {
-        String sql = "INSERT INTO services (name, description, price) VALUES (?, ?, ?)";
-        try (Connection connection = DatabaseConnection.getConnection();
-             PreparedStatement pstmt = connection.prepareStatement(sql)) {
-            pstmt.setString(1, "Massagem Relaxante");
-            pstmt.setString(2, "Massagem completa para relaxamento");
-            pstmt.setBigDecimal(3, new BigDecimal("100.00"));
-            int rows = pstmt.executeUpdate();
-            if (rows > 0) {
-                System.out.println("Um novo serviço foi inserido com sucesso!");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+  public Service save(Service servicoDaClinica) {
+    	
+    //minhaListaServicos.add(servicoDaClinica);
+        		
+    try {
+      String sql = "INSERT INTO services "
+        + "(name, description, price) "
+        + "VALUES (?, ?, ?)";
+            
+      Connection conn = 
+    	  DatabaseConnection.getConnection();
+
+			PreparedStatement pstmt = 
+					conn.prepareStatement(sql);
+			
+			pstmt.setString(1, servicoDaClinica.getName());
+      pstmt.setString(2, servicoDaClinica.getDescription());
+      pstmt.setDouble(3, servicoDaClinica.getPrice());
+			
+      int rows = pstmt.executeUpdate();
+          
+      if (rows > 0) {
+          System.out.println("Um novo serviço foi inserido com sucesso!");
+      }
+      
+      conn.close();
+    } catch (SQLException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
     }
+  return servicoDaClinica;
+  }
 }
 ```
 
