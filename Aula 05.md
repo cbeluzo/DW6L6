@@ -194,29 +194,39 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DatabaseConnection {
-    private static final String URL = "jdbc:mysql://localhost:3306/clinicadb";
-    private static final String USER = "web";
-    private static final String PASSWORD = "123";
-    private static Connection conn = null;
-        
-    public DatabaseConnection() {
-        try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD)) {
-        	System.out.println("Conexão com o banco de dados estabelecida com sucesso!");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-    
-    public static Connection getConnection() {
-        try {
-        	conn = DriverManager.getConnection(URL, USER, PASSWORD);        	
-        	return conn;
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
-    
-    }
+	private static final String URL = "jdbc:mysql://localhost:3306/clinicadb";
+	private static final String USER = "web";
+	private static final String PASSWORD = "123";
+	private static Connection conn = null;
+
+	public DatabaseConnection() {
+
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+			System.out.println("Conexão com o banco de dados estabelecida com sucesso!");
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}   
+	}
+
+	public static Connection getConnection() {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			conn = DriverManager.getConnection(URL, USER, PASSWORD);        	
+			return conn;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
 }
 ```
 
@@ -302,30 +312,37 @@ public class ServiceDao {
   - Iterar sobre o `ResultSet` e exibir os dados dos serviços.
 
 ```java
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.sql.SQLException;
-import java.math.BigDecimal;
+	public List<Service> getList() {
+		List<Service> myServieList = new ArrayList<Service>();
 
-public class ListServices {
-    public static void main(String[] args) {
-        String sql = "SELECT * FROM services";
-        try (Connection connection = DatabaseConnection.getConnection();
-             Statement stmt = connection.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)) {
-            while (rs.next()) {
-                int id = rs.getInt("id");
-                String name = rs.getString("name");
-                String description = rs.getString("description");
-                BigDecimal price = rs.getBigDecimal("price");
-                System.out.printf("ID: %d, Nome: %s, Descrição: %s, Preço: %s%n", id, name, description, price);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-}
+		String sql = "SELECT * FROM services";
+
+		try {
+			Connection conn = DatabaseConnection.getConnection();
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+
+			while (rs.next()) {
+				// Get variables do formulário
+				int id = rs.getInt("id");
+				String name = rs.getString("name");
+				String description = rs.getString("description");
+				double price = rs.getDouble("price");
+
+				// Create an object instance
+				Service myService = new Service(id, name, description, price);
+
+				// Add object in list
+				myServieList.add(myService);
+
+			}
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return myServieList;
+	}
 ```
 
 **Exercício 4: Atualizar Dados na Tabela `services`**
