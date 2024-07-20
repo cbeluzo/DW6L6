@@ -1,11 +1,16 @@
 # Utilizando MySQL com Conector JDBC
+*Prof. Carlos Beluzo | beluzo@ifsp.edu.br*
+
+Este material foi gerado com auxílio de ferramenta de Inteligência Artificial (ChatGPT 4o). O conteúdo foi concebido, organizado e revisado pelo professor seguindo a ementa do plano da disciplina.
+
 ---
+
 **Objetivo da Aula:**
 Nesta aula, os alunos aprenderão os conceitos fundamentais de bancos de dados relacionais e como conectar uma aplicação Java a um banco de dados MySQL utilizando o conector JDBC. A aula será dividida em três partes: conceitos fundamentais, exercícios de fixação e uma atividade prática que adapta o sistema de gerenciamento de serviços para clínica estética, desenvolvido anteriormente, para utilizar o banco de dados MySQL.
 
 ---
 
-## Parte 1: Conceitos Fundamentais e Configuração
+### Parte 1: Conceitos Fundamentais e Configuração
 
 #### 1. Conceitos Fundamentais
 
@@ -182,31 +187,6 @@ CREATE TABLE sessions (
   - Crie uma classe utilitária para gerenciar a conexão com o banco de dados.
 
 ```java
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-
-public class DatabaseConnection {
-    private static final String URL = "jdbc:mysql://localhost:3306/clinicadb";
-    private static final String USER = "root";
-    private static final String PASSWORD = "password";
-
-    public static Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(URL, USER, PASSWORD);
-    }
-}
-```
-
-## Parte 2: Exercícios de Fixação
-
-**Exercício 1: Conectar ao Banco de Dados**
-- **Objetivo:** Escrever um programa Java que se conecte ao banco de dados MySQL e exiba uma mensagem de sucesso.
-- **Passos:**
-  - Importar as bibliotecas necessárias.
-  - Utilizar a classe `DatabaseConnection` para obter a conexão.
-  - Exibir uma mensagem de sucesso.
-
-```java
 package com.example.dao;
 
 import java.sql.Connection;
@@ -217,6 +197,7 @@ public class DatabaseConnection {
     private static final String URL = "jdbc:mysql://localhost:3306/clinicadb";
     private static final String USER = "web";
     private static final String PASSWORD = "123";
+    private static Connection conn = null;
         
     public DatabaseConnection() {
         try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD)) {
@@ -227,13 +208,34 @@ public class DatabaseConnection {
     }
     
     public static Connection getConnection() {
-        try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD)) {
-        	return connection;
+        try {
+        	conn = DriverManager.getConnection(URL, USER, PASSWORD);        	
+        	return conn;
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return null;
+    
     }
+}
+```
+
+### Parte 2: Exercícios de Fixação
+
+**Exercício 1: Conectar ao Banco de Dados**
+- **Objetivo:** Escrever um programa Java que se conecte ao banco de dados MySQL e exiba uma mensagem de sucesso.
+- **Passos:**
+  - Importar as bibliotecas necessárias.
+  - Utilizar a classe `DatabaseConnection` para obter a conexão.
+  - Exibir uma mensagem de sucesso.
+
+```java
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class ConnectToDatabase {
+	// Seção: 2.4. Configuração da Conexão JDBC
 }
 ```
 
@@ -246,44 +248,49 @@ public class DatabaseConnection {
   - Executar a inserção e exibir uma mensagem de sucesso.
 
 ```java
+package com.example.dao;
+
+import java.util.ArrayList;
+import java.util.List;
+import com.example.model.Service;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.math.BigDecimal;
+	
+public class ServiceDao {
 
-public class InsertService {
-  public Service save(Service servicoDaClinica) {
-    	
-    //minhaListaServicos.add(servicoDaClinica);
-        		
-    try {
-      String sql = "INSERT INTO services "
-        + "(name, description, price) "
-        + "VALUES (?, ?, ?)";
+	DatabaseConnection db = new DatabaseConnection();
+    
+	public Service save(Service servicoDaClinica) {
+		
+		try {
+			String sql = "INSERT INTO services (name, description, price) VALUES (?, ?, ?)";
             
-      Connection conn = 
-    	  DatabaseConnection.getConnection();
+			Connection conn = DatabaseConnection.getConnection();
 
-			PreparedStatement pstmt = 
-					conn.prepareStatement(sql);
-			
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+
 			pstmt.setString(1, servicoDaClinica.getName());
-      pstmt.setString(2, servicoDaClinica.getDescription());
-      pstmt.setDouble(3, servicoDaClinica.getPrice());
+			pstmt.setString(2, servicoDaClinica.getDescription());
+			pstmt.setDouble(3, servicoDaClinica.getPrice());
 			
-      int rows = pstmt.executeUpdate();
-          
-      if (rows > 0) {
-          System.out.println("Um novo serviço foi inserido com sucesso!");
-      }
-      
-      conn.close();
-    } catch (SQLException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
-    }
-  return servicoDaClinica;
-  }
+			int rows = pstmt.executeUpdate();
+			
+			if (rows > 0) {
+				System.out.println("Um novo serviço foi inserido com sucesso!");
+			}
+			
+			conn.close();
+            
+			} catch (SQLException e) {
+				System.out.println("Erro ao salvar Serviço !");
+				e.printStackTrace();
+		}
+
+		return servicoDaClinica;
+	}
+
 }
 ```
 
@@ -357,64 +364,7 @@ public class UpdateServicePrice {
 
 ---
 
-## Parte 3: Revisando Conceitos
-
-1. **O que é um banco de dados relacional e quais são suas principais características?**
-   - **Resposta Esperada:** Um banco de dados relacional é um tipo de banco de dados que organiza os dados em tabelas, que podem ser relacionadas entre si através de chaves primárias e estrangeiras. Suas principais características incluem integridade referencial, normalização, suporte a transações, e uso de SQL para gerenciamento e manipulação de dados.
-
-2. **Explique a diferença entre os comandos SQL DDL, DML, DCL e TCL, dando exemplos de cada.**
-   - **Resposta Esperada:** 
-     - **DDL (Data Definition Language):** Comandos que definem a estrutura do banco de dados. Ex: `CREATE TABLE`, `ALTER TABLE`, `DROP TABLE`.
-     - **DML (Data Manipulation Language):** Comandos que manipulam os dados dentro das tabelas. Ex: `SELECT`, `INSERT`, `UPDATE`, `DELETE`.
-     - **DCL (Data Control Language):** Comandos que controlam o acesso aos dados. Ex: `GRANT`, `REVOKE`.
-     - **TCL (Transaction Control Language):** Comandos que gerenciam transações no banco de dados. Ex: `COMMIT`, `ROLLBACK`, `SAVEPOINT`.
-
-3. **O que é JDBC e quais são seus componentes principais?**
-   - **Resposta Esperada:** JDBC (Java Database Connectivity) é uma API Java que permite a comunicação entre uma aplicação Java e um banco de dados. Seus componentes principais incluem `DriverManager`, `Connection`, `Statement`, `PreparedStatement`, `ResultSet` e `CallableStatement`.
-
-4. **Quais são as vantagens de usar `PreparedStatement` em vez de `Statement`?**
-   - **Resposta Esperada:** 
-     - **Segurança:** `PreparedStatement` previne ataques de injeção de SQL ao utilizar parâmetros em vez de concatenar strings.
-     - **Eficiência:** Consultas parametrizadas podem ser pré-compiladas pelo banco de dados, resultando em melhor desempenho para execuções repetidas.
-     - **Facilidade de Uso:** `PreparedStatement` facilita a definição de parâmetros dinâmicos, melhorando a legibilidade e manutenção do código.
-
-5. **Descreva os passos para estabelecer uma conexão com um banco de dados MySQL utilizando JDBC.**
-   - **Resposta Esperada:** 
-     - Adicionar o driver JDBC do MySQL ao projeto.
-     - Importar as classes necessárias (`java.sql.Connection`, `java.sql.DriverManager`, etc.).
-     - Usar `DriverManager.getConnection` para estabelecer a conexão, fornecendo a URL do banco de dados, nome de usuário e senha.
-     - Fechar a conexão ao final.
-
-6. **Quais são os benefícios de usar bancos de dados em sistemas Java web?**
-   - **Resposta Esperada:** 
-     - **Persistência de Dados:** Permite armazenar dados de forma duradoura.
-     - **Consistência:** Garantia de integridade dos dados através de transações e chaves.
-     - **Escalabilidade:** Capacidade de gerenciar grandes volumes de dados e usuários simultâneos.
-     - **Segurança:** Controle de acesso e permissões sobre os dados.
-     - **Flexibilidade:** Suporte a consultas complexas e manipulação de dados.
-
-7. **O que é uma transação e como ela é gerenciada em JDBC?**
-   - **Resposta Esperada:** Uma transação é uma sequência de operações que são executadas como uma única unidade de trabalho. Em JDBC, transações são gerenciadas através dos métodos `setAutoCommit(false)`, `commit()` e `rollback()` da interface `Connection`. As operações dentro da transação são confirmadas ou revertidas em conjunto para garantir a consistência dos dados.
-
-8. **Explique o conceito de chave primária e chave estrangeira em um banco de dados relacional.**
-   - **Resposta Esperada:** 
-     - **Chave Primária (Primary Key):** É um campo ou combinação de campos que identificam unicamente cada registro em uma tabela.
-     - **Chave Estrangeira (Foreign Key):** É um campo em uma tabela que cria um vínculo com a chave primária de outra tabela, estabelecendo um relacionamento entre elas.
-
-9. **Quais são os padrões de projeto comuns ao trabalhar com JDBC em aplicações Java?**
-   - **Resposta Esperada:** 
-     - **DAO (Data Access Object):** Padrão que separa a lógica de acesso a dados da lógica de negócio, facilitando a manutenção e testes.
-     - **Singleton:** Padrão utilizado para garantir que apenas uma instância de uma classe (como uma classe de conexão) seja criada, controlando o acesso aos recursos compartilhados.
-     - **Factory:** Padrão utilizado para criar objetos de conexão de forma centralizada, permitindo mudanças de implementação sem afetar o código cliente.
-
-10. **Quais são os passos para adicionar um conector JDBC ao seu projeto Java em uma IDE como Eclipse ou IntelliJ IDEA?**
-    - **Resposta Esperada:**
-      - **Eclipse:**
-        - Clique com o botão direito no projeto > Build Path > Configure Build Path > Add External JARs > Selecione o `mysql-connector-java-<version>.jar`.
-      - **IntelliJ IDEA:**
-        - File > Project Structure > Modules > Dependencies > + > JARs or directories > Selecione o `mysql-connector-java-<version>.jar`.
-
-## Parte 4: Atividade Prática
+### Parte 3: Atividade Prática
 
 **Enunciado:**
 Adapte o sistema de gerenciamento de serviços para clínica estética para utilizar conexão com banco de dados MySQL. Utilize os conceitos aprendidos e implemente a persistência dos dados nas tabelas `services` e `sessions`.
