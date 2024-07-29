@@ -92,6 +92,7 @@ public interface ServicoEsteticoDao {
 3. Vá para a aba `Libraries` e clique em `Add External JARs`.
 4. Adicione o JAR do Hibernate e o JAR do MySQL Connector ao projeto. Caso não os tenha, baixe-os:
    - [Hibernate Core](https://hibernate.org/orm/downloads/)
+   -   [Download](https://repo.maven.apache.org/maven2/org/hibernate/orm/hibernate-core/6.5.2.Final/hibernate-core-6.5.2.Final.jar)
    - [MySQL Connector](https://dev.mysql.com/downloads/connector/j/)
 
    Exemplos de arquivos JAR a adicionar:
