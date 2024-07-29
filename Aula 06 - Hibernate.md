@@ -1,7 +1,11 @@
+## Desenvolvimento de Sistemas Web
 ### Aula 07: Mapeamento Objeto Relacional (ORM) com Java Hibernate
+##### **Este material foi gerado com auxílio de IA-Gen. Seu conteúdo foi concebido, organizado e revisado pelo professor.*
 
 **Objetivo da Aula:**
 Nesta aula, os alunos aprenderão os conceitos fundamentais de Mapeamento Objeto Relacional (ORM) e como utilizar o Hibernate, uma das ferramentas ORM mais populares em Java. Serão apresentados exemplos práticos a cada tópico explicado e exercícios para aplicar os conceitos aprendidos utilizando Hibernate em uma aplicação web de exemplo. A aula será formatada como um tutorial, com instruções detalhadas para os alunos executarem as tarefas.
+
+---
 
 #### 1. Revisão Teórica de Padrões de Projeto, DAO, ORM, JPA e Hibernate (20 minutos)
 - **Padrões de Projeto**
