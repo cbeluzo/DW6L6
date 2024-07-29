@@ -92,12 +92,11 @@ public interface ServicoEsteticoDao {
 3. Vá para a aba `Libraries` e clique em `Add External JARs`.
 4. Adicione o JAR do Hibernate e o JAR do MySQL Connector ao projeto. Caso não os tenha, baixe-os:
    - [Hibernate Core](https://hibernate.org/orm/downloads/)
-   -   [Download](https://repo.maven.apache.org/maven2/org/hibernate/orm/hibernate-core/6.5.2.Final/hibernate-core-6.5.2.Final.jar)
    - [MySQL Connector](https://dev.mysql.com/downloads/connector/j/)
 
    Exemplos de arquivos JAR a adicionar:
-   - `hibernate-core-5.4.30.Final.jar`
-   - `mysql-connector-java-8.0.33.jar`
+   - (hibernate-core-5.4.30.Final.jar)[https://repo.maven.apache.org/maven2/org/hibernate/orm/hibernate-core/6.5.2.Final/hibernate-core-6.5.2.Final.jar]
+   - (mysql-connector-java-8.0.33.jar)[https://dev.mysql.com/downloads/connector/j/?os=26]
    - Outras dependências do Hibernate (commons-logging, hibernate-annotations, etc.)
 
 5. Clique em `Apply and Close`.
@@ -114,7 +113,7 @@ public interface ServicoEsteticoDao {
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-configuration PUBLIC
         "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+        "https://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
