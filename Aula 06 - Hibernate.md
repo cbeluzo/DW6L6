@@ -96,6 +96,7 @@ public interface ServicoEsteticoDao {
 
    Exemplos de arquivos JAR a adicionar:
    - (hibernate-core-5.4.30.Final.jar)[https://repo.maven.apache.org/maven2/org/hibernate/orm/hibernate-core/6.5.2.Final/hibernate-core-6.5.2.Final.jar]
+   - (javax)[https://repo1.maven.org/maven2/jakarta/persistence/jakarta.persistence-api/2.2.3/jakarta.persistence-api-2.2.3.jar] 
    - (mysql-connector-java-8.0.33.jar)[https://dev.mysql.com/downloads/connector/j/?os=26]
    - Outras dependências do Hibernate (commons-logging, hibernate-annotations, etc.)
 
