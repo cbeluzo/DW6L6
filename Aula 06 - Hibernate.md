@@ -2,33 +2,39 @@
 ### Aula 07: Mapeamento Objeto Relacional (ORM) com Java Hibernate
 ##### **Este material foi gerado com auxílio de IA-Gen. Seu conteúdo foi concebido, organizado e revisado pelo professor.*
 
-**Objetivo da Aula:**
-Nesta aula, os alunos aprenderão os conceitos fundamentais de Mapeamento Objeto Relacional (ORM) e como utilizar o Hibernate, uma das ferramentas ORM mais populares em Java. Serão apresentados exemplos práticos a cada tópico explicado e exercícios para aplicar os conceitos aprendidos utilizando Hibernate em uma aplicação web de exemplo. A aula será formatada como um tutorial, com instruções detalhadas para os alunos executarem as tarefas.
+**Objetivo da Aula:**  
+Nesta aula, os alunos aprenderão a configurar um projeto Java utilizando o Maven como gerenciador de pacotes. Vamos explorar como utilizar o Hibernate para mapear objetos Java para tabelas em um banco de dados MySQL, cobrindo desde a configuração inicial até a execução de operações CRUD. Além disso, abordaremos a teoria sobre o `SessionFactory` do Hibernate e como ele é usado para gerenciar as sessões e transações no contexto de persistência de dados.
 
 ---
+
+### Estrutura da Aula
 
 #### 1. Revisão Teórica de Padrões de Projeto, DAO, ORM, JPA e Hibernate (20 minutos)
 - **Padrões de Projeto**
 - **DAO (Data Access Object)**
 - **ORM (Object-Relational Mapping)**
-- **JPA (Java Persistence API)**
+- **JPA (Jakarta Persistence API)**
 - **Hibernate**
 
-#### 2. Configuração do Ambiente no Eclipse
-- **Adicionar Dependências do Hibernate**
-- **Configuração do Hibernate**
-- **Criação de Arquivo de Configuração Hibernate (hibernate.cfg.xml)**
+#### 2. Configuração do Ambiente com Maven no Eclipse (20 minutos)
+- **Criação de um Novo Projeto Maven**
+- **Adicionar Dependências do Hibernate e MySQL**
 
-#### 3. Mapeamento de Entidades com Anotações
+#### 3. Teoria sobre SessionFactory do Hibernate (10 minutos)
+- **Definição e Propósito**
+- **Como Funciona o SessionFactory**
+- **Melhores Práticas**
+
+#### 4. Mapeamento de Entidades com Anotações (15 minutos)
 - **Entidades e Tabelas**
 - **Anotações Básicas: @Entity, @Table, @Id, @GeneratedValue**
 - **Anotações de Relacionamentos: @OneToOne, @OneToMany, @ManyToOne, @ManyToMany**
 
-#### 4. Operações CRUD com Hibernate
+#### 5. Operações CRUD com Hibernate (15 minutos)
 - **Criar, Ler, Atualizar e Deletar Entidades**
 - **Sessão Hibernate e Transações**
 
-#### 5. Exercícios Práticos
+#### 6. Exercícios Práticos (10 minutos)
 - **Configuração e Mapeamento de Entidades**
 - **Operações CRUD**
 
@@ -68,8 +74,8 @@ public interface ServicoEsteticoDao {
   - **Manutenção:** Simplifica a manutenção do código, pois as mudanças no banco de dados não afetam diretamente o código da aplicação.
   - **Abstração:** Fornece uma camada de abstração entre a aplicação e o banco de dados, tornando a aplicação menos dependente de detalhes específicos de implementação do banco de dados.
 
-**1.4. JPA (Java Persistence API)**
-- **Definição:** JPA é uma especificação Java que fornece um framework para gerenciar dados relacionais em aplicações Java. Ele define a forma como os objetos Java são mapeados para tabelas no banco de dados.
+**1.4. JPA (Jakarta Persistence API)**
+- **Definição:** JPA é uma especificação Jakarta que fornece um framework para gerenciar dados relacionais em aplicações Java. Ele define a forma como os objetos Java são mapeados para tabelas no banco de dados.
 - **Principais Componentes:**
   - **EntityManager:** Interface principal para interagir com o contexto de persistência.
   - **Entity:** Classe Java que é mapeada para uma tabela do banco de dados.
@@ -82,74 +88,158 @@ public interface ServicoEsteticoDao {
   - **Transações:** Gerencia transações de banco de dados.
   - **Consultas HQL:** Hibernate Query Language, uma linguagem de consulta orientada a objetos semelhante ao SQL.
 
-### Parte 2: Configuração do Ambiente no Eclipse
+---
 
-**2.1. Adicionar Dependências do Hibernate**
+### Parte 2: Configuração do Ambiente com Maven no Eclipse
 
-**Passo a Passo:**
-1. Abra seu projeto no Eclipse.
-2. Clique com o botão direito no projeto e selecione `Build Path > Configure Build Path`.
-3. Vá para a aba `Libraries` e clique em `Add External JARs`.
-4. Adicione o JAR do Hibernate e o JAR do MySQL Connector ao projeto. Caso não os tenha, baixe-os:
-   - [Hibernate Core](https://hibernate.org/orm/downloads/)
-   - [MySQL Connector](https://dev.mysql.com/downloads/connector/j/)
-
-   Exemplos de arquivos JAR a adicionar:
-   - (hibernate-core-5.4.30.Final.jar)[https://repo.maven.apache.org/maven2/org/hibernate/orm/hibernate-core/6.5.2.Final/hibernate-core-6.5.2.Final.jar]
-   - (javax)[https://repo1.maven.org/maven2/jakarta/persistence/jakarta.persistence-api/2.2.3/jakarta.persistence-api-2.2.3.jar] 
-   - (mysql-connector-java-8.0.33.jar)[https://dev.mysql.com/downloads/connector/j/?os=26]
-   - Outras dependências do Hibernate (commons-logging, hibernate-annotations, etc.)
-
-5. Clique em `Apply and Close`.
-
-**2.2. Configuração do Hibernate**
+**2.1. Criação de um Novo Projeto Maven**
 
 **Passo a Passo:**
-1. No seu projeto, crie uma pasta chamada `src/main/resources` (ou apenas `src` se o projeto não estiver estruturado para Maven).
-2. Dentro desta pasta, crie o arquivo `hibernate.cfg.xml`.
+1. Abra o Eclipse e vá para `File > New > Project`.
+2. Selecione `Maven Project` e clique em `Next`.
+3. Escolha o diretório de trabalho do projeto e clique em `Next`.
+4. Selecione uma `Archetype` como `maven-archetype-quickstart` para um projeto básico e clique em `Next`.
+5. Preencha as informações do projeto: `Group Id` (por exemplo, `com.example`), `Artifact Id` (por exemplo, `desenvolvimento-web`), `Version`, e clique em `Finish`.
 
-**Conteúdo do `hibernate.cfg.xml`:**
+**2.2. Adicionar Dependências do Hibernate e MySQL**
+
+- Abra o arquivo `pom.xml` no seu projeto Maven e adicione as seguintes dependências:
 
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-configuration PUBLIC
-        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-        "https://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
-<hibernate-configuration>
-    <session-factory>
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/clinicadb</property>
-        <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">password</property>
-        <property name="hibernate.hbm2ddl.auto">update</property>
-        <property name="hibernate.show_sql">true</property>
-        <property name="hibernate.format_sql">true</property>
-        
-        <!-- Mapping Classes -->
-        <mapping class="com.example.model.ServicoEstetico"/>
-        <mapping class="com.example.model.SessaoEstetica"/>
-    </session-factory>
-</hibernate-configuration>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.example</groupId>
+    <artifactId>desenvolvimento-web</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <dependencies>
+        <!-- Hibernate Core -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.4.32.Final</version>
+        </dependency>
+
+        <!-- Jakarta Persistence API -->
+        <dependency>
+            <groupId>jakarta.persistence</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+            <version>2.2.3</version>
+        </dependency>
+
+        <!-- MySQL Connector -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.33</version>
+        </dependency>
+
+        <!-- SLF4J Logging -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.32</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.32</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Compiler Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>11</source>
+                    <target>11</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
 ```
 
-### Parte 3: Mapeamento de Entidades com Anotações
+**Explicação das Dependências:**
+- **Hibernate Core:** Biblioteca principal do Hibernate para mapeamento objeto-relacional.
+- **Jakarta Persistence API:** Define as interfaces JPA que o Hibernate implementa.
+- **MySQL Connector:** Driver JDBC para conectar o Java com o banco de dados MySQL.
+- **SLF4J:** Biblioteca de logging utilizada pelo Hibernate.
 
-**3.1. Entidades e Tabelas**
-- **Definição:** Uma entidade representa uma tabela no banco de dados.
+---
 
-**Exemplo de Classe de Entidade:**
+### Parte 3: Teoria sobre SessionFactory do Hibernate
+
+**3.1. O que é SessionFactory?**
+- **Definição:** O `SessionFactory` é uma fábrica de sessões (Session Factory) no Hibernate. Ele é responsável por criar e gerenciar objetos `Session`, que representam a conexão com o banco de dados. O `SessionFactory` é a espinha
+
+ dorsal de qualquer aplicação Hibernate, atuando como um ponto de configuração compartilhado.
+  
+- **Propósito:** O `SessionFactory` é projetado para ser instanciado uma única vez por aplicação e mantido em cache para reutilização, uma vez que a criação dele é uma operação custosa. Ele é thread-safe e pode ser compartilhado entre várias threads na aplicação.
+
+**3.2. Como Funciona o SessionFactory?**
+- **Configuração:** O `SessionFactory` é configurado a partir do arquivo `hibernate.cfg.xml` ou programaticamente usando `Configuration` em Java.
+- **Sessões:** Ele cria objetos `Session`, que são utilizados para realizar operações CRUD (Create, Read, Update, Delete) e consultas HQL.
+- **Gerenciamento de Transações:** As transações são gerenciadas dentro de uma sessão, com o `SessionFactory` fornecendo as sessões necessárias para essa operação.
+
+**3.3. Melhores Práticas:**
+- **Única Instância:** Sempre crie uma única instância do `SessionFactory` por aplicação, geralmente usando um padrão Singleton.
+- **Eficiência:** Manter o `SessionFactory` aberto durante o ciclo de vida da aplicação para maximizar a eficiência e o desempenho.
+- **Gerenciamento Adequado de Sessões:** Use `try-with-resources` ou blocos `finally` para garantir que sessões e transações sejam fechadas corretamente, evitando vazamentos de conexão.
+
+**Exemplo de Configuração do SessionFactory:**
+
+```java
+package com.example.util;
+
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+public class HibernateUtil {
+    private static final SessionFactory sessionFactory = buildSessionFactory();
+
+    private static SessionFactory buildSessionFactory() {
+        try {
+            // Cria o SessionFactory a partir do arquivo hibernate.cfg.xml
+            return new Configuration().configure().buildSessionFactory();
+        } catch (Throwable ex) {
+            // Log de exceção
+            System.err.println("Falha na criação do SessionFactory: " + ex);
+            throw new ExceptionInInitializerError(ex);
+        }
+    }
+
+    public static SessionFactory getSessionFactory() {
+        return sessionFactory;
+    }
+}
+```
+
+---
+
+### Parte 4: Mapeamento de Entidades com Anotações
+
+**4.1. Entidades e Tabelas**
+
+**Definição:** Uma entidade representa uma tabela no banco de dados.
 
 **Passo a Passo:**
 1. Crie um pacote chamado `com.example.model`.
-2. Dentro deste pacote, crie a classe `ServicoEstetico`.
+2. Dentro deste pacote, crie as classes `ServicoEstetico` e `SessaoEstetica`.
 
 **Conteúdo da Classe `ServicoEstetico`:**
 
 ```java
 package com.example.model;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.util.Set;
 
@@ -176,25 +266,12 @@ public class ServicoEstetico {
 }
 ```
 
-**3.2. Anotações Básicas**
-- **@Entity:** Indica que a classe é uma entidade.
-- **@Table:** Especifica a tabela do banco de dados que a entidade mapeia.
-- **@Id:** Define o campo como chave primária.
-- **@GeneratedValue:** Especifica como o valor do campo será gerado.
-
-**3.3. Anotações de
-
- Relacionamentos**
-
-**Passo a Passo:**
-1. Dentro do pacote `com.example.model`, crie a classe `SessaoEstetica`.
-
 **Conteúdo da Classe `SessaoEstetica`:**
 
 ```java
 package com.example.model;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -218,9 +295,21 @@ public class SessaoEstetica {
 }
 ```
 
-### Parte 4: Operações CRUD com Hibernate
+**4.2. Anotações Básicas**
+- **@Entity:** Indica que a classe é uma entidade.
+- **@Table:** Especifica a tabela do banco de dados que a entidade mapeia.
+- **@Id:** Define o campo como chave primária.
+- **@GeneratedValue:** Especifica como o valor do campo será gerado.
 
-**4.1. Sessão Hibernate e Transações**
+**4.3. Anotações de Relacionamentos**
+- **@OneToMany:** Indica um relacionamento um-para-muitos.
+- **@ManyToOne:** Indica um relacionamento muitos-para-um.
+
+---
+
+### Parte 5: Operações CRUD com Hibernate
+
+**5.1. Sessão Hibernate e Transações**
 
 **Configuração da Fábrica de Sessões:**
 
@@ -235,29 +324,15 @@ package com.example.util;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.HibernateException;
 
 public class HibernateUtil {
-
     private static final SessionFactory sessionFactory = buildSessionFactory();
 
     private static SessionFactory buildSessionFactory() {
         try {
-            // Cria a Configuration
-            Configuration configuration = new Configuration();
-            configuration.configure("hibernate.cfg.xml");
-
-            // Cria o ServiceRegistry
-            ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
-                    .applySettings(configuration.getProperties()).build();
-
-            // Cria a SessionFactory
-            return configuration.buildSessionFactory(serviceRegistry);
-        } catch (Exception ex) {
-            // Exibe a exceção na saída de erro padrão.
-            System.err.println("Initial SessionFactory creation failed." + ex);
+            return new Configuration().configure().buildSessionFactory();
+        } catch (Throwable ex) {
+            System.err.println("Falha na criação do SessionFactory: " + ex);
             throw new ExceptionInInitializerError(ex);
         }
     }
@@ -265,15 +340,10 @@ public class HibernateUtil {
     public static SessionFactory getSessionFactory() {
         return sessionFactory;
     }
-
-    public static void shutdown() {
-        // Fecha caches e pools de conexões
-        getSessionFactory().close();
-    }
 }
 ```
 
-**4.2. Operações CRUD**
+**5.2. Operações CRUD**
 
 **Exemplo: Criar Entidade**
 
@@ -349,7 +419,9 @@ public class ServicoEsteticoDaoImpl implements ServicoEsteticoDao {
 }
 ```
 
-### Parte 5: Exercícios Práticos
+---
+
+### Parte 6: Exercícios Práticos
 
 **Exercício 1: Configuração e Mapeamento de Entidades**
 - **Tarefa:** Configure o Hibernate no seu projeto e crie entidades para as tabelas `servicos_esteticos` e `sessoes_esteticas`.
@@ -365,10 +437,20 @@ public class ServicoEsteticoDaoImpl implements ServicoEsteticoDao {
 
 ---
 
-### Material Complementar
-- [Hibernate ORM Documentation](https://hibernate.org/orm/documentation/)
+### Conclusão
 
-- [Java EE 7 Tutorial - JPA](https://docs.oracle.com/javaee/7/tutorial/persistence-intro.htm)
+Neste tutorial, os alunos aprenderam sobre os conceitos fundamentais de ORM e como utilizar o Hibernate para mapear entidades Java a tabelas de banco de dados. Através de instruções detalhadas, exemplos práticos e exercícios, os alunos aplicaram os conceitos aprendidos para criar, ler, atualizar e deletar entidades em uma aplicação web usando Hibernate.
 
-- [Coursera - Java Programming and Software Engineering Fundamentals](https://www.coursera.org/specializations/java-programming)
- 
+### Links de Leitura Recomendada
+
+1. **Documentação do Hibernate:** [Hibernate ORM Documentation](https://hibernate.org/orm/documentation/)
+2. **Tutorial do Jakarta Persistence:** [Jakarta Persistence Tutorial](https://jakarta.ee/specifications/persistence/)
+3. **Baeldung - Guia do Hibernate:** [Hibernate Guide](https://www.baeldung.com/hibernate-5)
+4. **Vlad Mihalcea's Blog:** [Vlad Mihalcea's Blog](https://vladmihalcea.com/)
+5
+
+. **Stack Overflow - Hibernate Tag:** [Hibernate Questions](https://stackoverflow.com/questions/tagged/hibernate)
+
+---
+
+Com estas alterações, o material da aula inclui uma explicação completa sobre o uso do `SessionFactory` no Hibernate, bem como a configuração do projeto usando o Maven para gerenciar dependências. Este formato ajuda a criar uma base sólida para o desenvolvimento de sistemas web Java com persistência de dados.
