@@ -276,6 +276,104 @@ A instalação do **Spring Tool Suite 4 (STS 4)** no Eclipse é um processo simp
    spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
    ```
 
+
+pom.xml
+
+   ```
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.3.2</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>br.edu.ifsp.clinica</groupId>
+	<artifactId>Clinica_Estetica_SpringBoot</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<name>Clinica_Estetica_SpringBoot</name>
+	<description>Demo project for Spring Boot</description>
+	<url/>
+	<licenses>
+		<license/>
+	</licenses>
+	<developers>
+		<developer/>
+	</developers>
+	<scm>
+		<connection/>
+		<developerConnection/>
+		<tag/>
+		<url/>
+	</scm>
+	<properties>
+		<java.version>17</java.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.thymeleaf.extras</groupId>
+			<artifactId>thymeleaf-extras-springsecurity6</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- Hibernate JPA dependency -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
+
+   ```
+
 ### **Parte 2: Modelagem do Sistema - Usuários, Profissionais, Procedimentos e Agendamentos**
 
 #### **Teoria: Modelagem de Dados**
@@ -298,7 +396,7 @@ A instalação do **Spring Tool Suite 4 (STS 4)** no Eclipse é um processo simp
    ```java
    package com.example.clinica.model;
 
-   import javax.persistence.*;
+   import jakarta.persistence.*;
    import java.util.List;
 
    @Entity
@@ -324,7 +422,7 @@ A instalação do **Spring Tool Suite 4 (STS 4)** no Eclipse é um processo simp
    ```java
    package com.example.clinica.model;
 
-   import javax.persistence.*;
+   import jakarta.persistence.*;
    import java.util.List;
 
    @Entity
@@ -349,7 +447,7 @@ A instalação do **Spring Tool Suite 4 (STS 4)** no Eclipse é um processo simp
    ```java
    package com.example.clinica.model;
 
-   import javax.persistence.*;
+   import jakarta.persistence.*;
    import java.util.List;
 
    @Entity
@@ -374,7 +472,7 @@ A instalação do **Spring Tool Suite 4 (STS 4)** no Eclipse é um processo simp
    ```java
    package com.example.clinica.model;
 
-   import javax.persistence.*;
+   import jakarta.persistence.*;
    import java.time.LocalDateTime;
 
    @Entity
@@ -888,3 +986,57 @@ A instalação do **Spring Tool Suite 4 (STS 4)** no Eclipse é um processo simp
 
 2. **Próximos Passos**:
    - Implementar autorização baseada em funções, adicionar testes automatizados e expandir o sistema com novas funcionalidades como cancelamento de agendamentos, notificações e relatórios.
+
+```
+MySpringBootApp/                 <-- Root directory of your project
+│
+├── src/                         <-- Source directory
+│   ├── main/                    <-- Main application code
+│   │   ├── java/                <-- Java source files
+│   │   │   └── com/             <-- Base package (defined by you)
+│   │   │       └── example/
+│   │   │           └── myspringbootapp/
+│   │   │               ├── MySpringBootAppApplication.java  <-- Main application class
+│   │   │               │
+│   │   │               ├── model/                          <-- Package for model/entity classes
+│   │   │               │   └── User.java                    <-- Example model class
+│   │   │               │
+│   │   │               ├── repository/                      <-- Package for repositories
+│   │   │               │   └── UserRepository.java          <-- Example JPA repository
+│   │   │               │
+│   │   │               ├── service/                         <-- Package for services
+│   │   │               │   └── UserService.java             <-- Example service class
+│   │   │               │
+│   │   │               ├── controller/                      <-- Package for controllers
+│   │   │               │   └── UserController.java          <-- Example REST controller
+│   │   │               │
+│   │   │               └── config/                          <-- Package for configuration classes
+│   │   │                   └── WebConfig.java               <-- Example configuration class
+│   │   │
+│   │   └── resources/            <-- Resource files (configuration, templates, etc.)
+│   │       ├── application.properties   <-- Main configuration file (can also be .yml)
+│   │       ├── static/                  <-- Static resources (e.g., HTML, CSS, JS)
+│   │       ├── templates/               <-- Thymeleaf or other templates (if using)
+│   │       └── public/                  <-- Public resources accessible via web
+│   │
+│   └── test/                    <-- Test code
+│       ├── java/                <-- Java source files for tests
+│       │   └── com/
+│       │       └── example/
+│       │           └── myspringbootapp/
+│       │               ├── MySpringBootAppApplicationTests.java  <-- Example test class
+│       │
+│       └── resources/           <-- Resource files for tests
+│
+├── mvnw                         <-- Maven wrapper script for Linux/Mac
+├── mvnw.cmd                     <-- Maven wrapper script for Windows
+├── pom.xml                      <-- Maven configuration file (for Maven projects)
+├── build.gradle                 <-- Gradle configuration file (for Gradle projects)
+├── gradlew                      <-- Gradle wrapper script for Linux/Mac
+├── gradlew.bat                  <-- Gradle wrapper script for Windows
+└── .mvn/                        <-- Maven wrapper files (for Maven projects)
+    └── wrapper/
+        └── maven-wrapper.properties
+
+```
+
