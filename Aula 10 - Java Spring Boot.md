@@ -536,9 +536,7 @@ A instalação do **Spring Tool Suite 4 (STS 4)** no Eclipse é um processo simp
 
    import com.example.clinica.model.User;
    import com.example.clinica.service.UserService;
-   import org.springframework.beans.factory.annotation
-
-.Autowired;
+   import org.springframework.beans.factory.annotation.Autowired;
    import org.springframework.stereotype.Controller;
    import org.springframework.ui.Model;
    import org.springframework.web.bind.annotation.GetMapping;
