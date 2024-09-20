@@ -1,4 +1,8 @@
-# Aula 2: Conceitos Fundamentais em Sistemas Web
+<a name="topo"></a>
+# **Aula 2: Conceitos Fundamentais em Sistemas Web**
+
+*Este material foi gerado com AI-Gen. A estrutura e conteúdo foi concebida e revisada pelo autor.*
+
 
 ### Objetivo da Aula
 Nesta segunda aula do curso de Desenvolvimento Web Avançado, vamos aprofundar nossos conhecimentos nos conceitos essenciais relacionados a sistemas web. Discutiremos a evolução histórica das aplicações web e analisaremos casos de sucesso e fracasso no desenvolvimento web.
@@ -245,7 +249,11 @@ public class MeuServletInterativo extends HttpServlet {
 
 Em uma aplicação real, você precisaria adicionar tratamento de erros e possivelmente outras funcionalidades. Além disso, este código pressupõe que você está familiarizado com a configuração de servlets em seu servidor web e com a compilação de código Java. Se você não estiver, pode ser útil consultar a documentação do seu servidor web ou um tutorial de Java para obter instruções passo a passo.
 
-**Exercício adicional:**
-- Alterar o servlet para fazer uma autenticação de usuário e senha.
+---
+
+**Exercícios:**
+1) Alterar o servlet para fazer uma autenticação de usuário e senha. Armzenar o usuário e senha em variáveis locais.
+
+2) Criar uma aplicação web que permite fazer registro de usuário (email) e senha. Quando usuário se cadastra, as informações são armazendas em um vetor (Array). Quando o usuário faz o login, a aplicação verifica se usuario existe no vetor, e se a senha corresponde aquela armazenda no vetor.
 
 ---

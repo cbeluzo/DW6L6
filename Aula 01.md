@@ -223,47 +223,50 @@ Essas alternativas permitem flexibilidade na escolha de uma tecnologia adequada 
 
 ---
 
-### **2.2 Configuração da IDE (IntelliJ IDEA)**
+### **2.2 Configuração da IDE (Eclipse)**
 
-A escolha da IDE (Integrated Development Environment) é um passo fundamental para o desenvolvimento web. O **IntelliJ IDEA** será a ferramenta utilizada neste curso, pois oferece uma integração completa com Java e outras tecnologias que iremos utilizar, como Hibernate, Spring, e RESTful APIs.
+A escolha da **IDE (Integrated Development Environment)** é um passo essencial para o desenvolvimento web. O **Eclipse** será a ferramenta utilizada neste curso, pois oferece uma integração completa com Java e várias tecnologias que utilizaremos, como Hibernate, Spring, e RESTful APIs.
 
-#### **Por que usar o IntelliJ IDEA?**
-- **Integração robusta** com frameworks Java como Spring e Hibernate.
-- **Refatoração inteligente** e assistência de código para agilizar o desenvolvimento.
-- **Suporte nativo a ferramentas de build**, como Maven e Gradle, simplificando a configuração de projetos complexos.
-- **Debugging avançado** e suporte integrado a testes, facilitando a resolução de erros e a verificação da aplicação.
+#### **Por que usar o Eclipse?**
+- **Ampla compatibilidade** com frameworks Java como Spring e Hibernate.
+- **Refatoração eficiente** e suporte a diversas linguagens de programação.
+- **Integração nativa com ferramentas de build**, como Maven e Gradle, facilitando a configuração e manutenção de projetos complexos.
+- **Suporte a plugins** para funcionalidades adicionais, como desenvolvimento web e integração com servidores.
 
-#### **Passo a Passo da Instalação do IntelliJ IDEA:**
+#### **Passo a Passo da Instalação do Eclipse:**
 
 #### **Windows / macOS / Linux**
-1. Acesse o site oficial do IntelliJ IDEA ([https://www.jetbrains.com/idea/download](https://www.jetbrains.com/idea/download)) e faça o download da versão **Community** (gratuita) ou da versão **Ultimate** (recomendada para quem precisa de mais recursos).
-2. Execute o instalador e siga as instruções de instalação.
-3. Durante a instalação, escolha as opções de configuração que mais se adequem ao seu sistema operacional. No Windows, por exemplo, marque a opção de criar atalhos e associar a IDE a arquivos `.java`.
-4. Após a instalação, abra o IntelliJ IDEA e crie um novo projeto Java:
-   - Selecione "New Project".
-   - Escolha "Java" e selecione o JDK instalado.
-   - Configure a estrutura do projeto com **Maven** ou **Gradle**, conforme o necessário.
-5. Verifique se a IDE está configurada corretamente criando uma classe Java simples e rodando o código.
+1. Acesse o site oficial do Eclipse ([https://www.eclipse.org/downloads/](https://www.eclipse.org/downloads/)) e faça o download do **Eclipse IDE for Enterprise Java and Web Developers**.
+2. Execute o instalador e siga as instruções para concluir a instalação.
+3. Durante a instalação, certifique-se de que o JDK está corretamente configurado em seu sistema, pois o Eclipse utilizará esse ambiente.
+4. Após a instalação, abra o Eclipse e crie um novo projeto Java:
+   - Selecione **File > New > Dynamic Web Project**.
+   - Configure o nome do projeto e o JDK que será utilizado.
+   - Escolha **Apache Tomcat** como o servidor de destino, caso o Tomcat já esteja instalado.
+5. Verifique se a IDE está configurada corretamente criando uma classe Java simples e executando o código.
 
 #### **Plugins importantes para instalação:**
-- **Lombok Plugin**: Facilita a criação de classes Java ao reduzir a necessidade de escrever código repetitivo, como getters e setters.
-- **Spring Assistant**: Auxilia no desenvolvimento com o framework Spring, oferecendo recursos como autocompletar e sugestões para anotações Spring.
-- **Docker Plugin**: Útil para quem precisa configurar containers diretamente da IDE.
-  
-#### **Configurando o Servidor Tomcat no IntelliJ IDEA**
-1. Acesse **File > Project Structure > Modules**.
-2. Vá até **Run > Edit Configurations** e adicione uma nova configuração de servidor Tomcat.
-3. Baixe e configure o Apache Tomcat, associando o diretório de instalação ao IntelliJ.
+- **Lombok Plugin**: Facilita a criação de classes Java, reduzindo a necessidade de código repetitivo, como getters e setters.
+- **Spring Tools**: Suporta o desenvolvimento com o framework Spring, fornecendo autocompletar e sugestões para anotações Spring.
+- **Docker Tooling**: Adiciona suporte para desenvolvimento e execução de containers Docker diretamente no Eclipse.
+
+#### **Configurando o Servidor Tomcat no Eclipse**
+1. No menu principal do Eclipse, vá até **Window > Preferences > Server > Runtime Environments**.
+2. Clique em **Add** e selecione **Apache Tomcat** na lista.
+3. Navegue até o local onde o Tomcat está instalado no seu sistema e adicione-o como um servidor.
+4. Após configurado, adicione o Tomcat como servidor no seu projeto:
+   - Clique com o botão direito no nome do projeto > **Run As > Run on Server**.
+   - Selecione o **Tomcat** e configure-o para rodar o projeto.
 
 #### **Perguntas:**
-1. **Por que escolher o IntelliJ IDEA como IDE para desenvolvimento web com Java?**
-   - O IntelliJ IDEA oferece suporte nativo a frameworks como Spring, além de recursos avançados de refatoração de código e debugging, tornando o desenvolvimento mais ágil e eficiente.
+1. **Por que escolher o Eclipse como IDE para desenvolvimento web com Java?**
+   - O Eclipse oferece suporte abrangente a frameworks como Spring e Hibernate, além de recursos de refatoração e depuração eficientes, tornando o desenvolvimento de aplicações web mais produtivo.
 
-2. **Quais são os passos para instalar e configurar o IntelliJ IDEA?**
-   - O processo inclui o download da IDE no site oficial, instalação do JDK e configuração inicial da IDE para criar um novo projeto Java.
+2. **Quais são os passos para instalar e configurar o Eclipse?**
+   - O processo inclui o download da IDE no site oficial do Eclipse, instalação do JDK e configuração do Apache Tomcat como servidor para executar e testar os projetos.
 
-3. **Quais são as funcionalidades destacadas do IntelliJ IDEA que beneficiam desenvolvedores web?**
-   - Funcionalidades como Code Assistance, refatoração inteligente, suporte a frameworks como Hibernate e Spring, além da integração com Docker e sistemas de controle de versão.
+3. **Quais são as funcionalidades destacadas do Eclipse que beneficiam desenvolvedores web?**
+   - Funcionalidades como autocompletar de código, integração com frameworks Java, suporte a Docker e integração com servidores como Apache Tomcat, são essenciais para um desenvolvimento web eficiente.
 
 ---
 <a name="3"></a>
@@ -277,16 +280,15 @@ Uma estrutura de projeto bem organizada é essencial para o desenvolvimento de a
 
 #### **Passo a Passo para Criar um Projeto Web Básico:**
 
-1. **Criando um novo projeto no IntelliJ IDEA**
-   - Abra o IntelliJ IDEA e selecione "New Project".
-   - Escolha a opção "Java Enterprise" e selecione o **Web Application** como o tipo de projeto.
-   - Selecione a versão do **JDK** que você instalou anteriormente.
-   - Escolha o **Apache Tomcat** como servidor de aplicação.
-   - Defina o nome do projeto e escolha o diretório onde ele será salvo.
-   
+1. **Criando um novo projeto no Eclipse**
+   - Abra o Eclipse e selecione **File > New > Dynamic Web Project**.
+   - Configure o nome do projeto (ex: `ProjetoWebSimples`) e selecione a versão do **JDK** que você instalou anteriormente.
+   - Escolha o **Apache Tomcat** como servidor de aplicação. Se ele ainda não estiver configurado, você pode adicionar o Tomcat durante a criação do projeto.
+   - Defina o diretório onde o projeto será salvo e clique em **Finish** para criar o projeto.
+
 2. **Estrutura básica de um projeto web em Java**
-   Após a criação do projeto, o IntelliJ IDEA irá gerar uma estrutura de diretórios padrão, que deve incluir:
-   
+   Após a criação do projeto, o Eclipse irá gerar uma estrutura de diretórios padrão, que deve incluir:
+
    - **src/**: Diretório que contém o código-fonte Java.
    - **WebContent/** ou **webapp/**: Diretório com arquivos relacionados ao frontend, como HTML, CSS, JavaScript, e arquivos de configuração como `web.xml`.
    - **lib/**: Diretório onde são armazenadas as bibliotecas e dependências externas do projeto.
@@ -297,7 +299,7 @@ Uma estrutura de projeto bem organizada é essencial para o desenvolvimento de a
    - **src/**: Aqui você criará as classes Java que contêm a lógica da sua aplicação.
    - **WebContent/** ou **webapp/**: Este diretório armazena o conteúdo acessível ao usuário, como páginas HTML, arquivos JavaScript, imagens e outros recursos estáticos.
    - **WEB-INF/**: Este diretório armazena arquivos que não devem ser acessados diretamente pelos usuários, como o arquivo `web.xml`, que define configurações do servidor e o mapeamento das URLs para os servlets.
-   
+
 4. **Primeiro Servlet e Configuração no `web.xml`**
    - No diretório **src**, crie um pacote chamado `com.exemplo.web`.
    - Crie uma nova classe Java chamada `HelloServlet` no pacote `com.exemplo.web`:
@@ -348,45 +350,78 @@ Uma estrutura de projeto bem organizada é essencial para o desenvolvimento de a
 
 ### **3.2 Configuração e Execução do Servidor de Aplicação Local (Apache Tomcat)**
 
-Agora que temos a estrutura do projeto, vamos configurar o servidor de aplicação Apache Tomcat para que possamos rodar e testar nossa aplicação localmente.
+Agora que temos a estrutura do projeto, vamos configurar o servidor de aplicação **Apache Tomcat** para que possamos rodar e testar nossa aplicação localmente.
 
 #### **Passo a Passo para Configurar e Executar o Tomcat:**
 
-1. **Configuração do Tomcat no IntelliJ IDEA**
-   - Abra o IntelliJ IDEA e acesse **Run > Edit Configurations**.
-   - Clique no ícone “+” e selecione “Tomcat Server > Local”.
-   - No campo "Tomcat Home", selecione o diretório onde o Apache Tomcat foi instalado.
-   - Adicione o seu projeto à configuração, em "Deployment", clicando em "Fix" e selecionando o artefato do projeto.
-   - Clique em **OK** para salvar a configuração.
+1. **Configuração do Tomcat no Eclipse**
+   - No Eclipse, vá para **Window > Preferences > Server > Runtime Environments**.
+   - Clique em **Add** e selecione **Apache Tomcat** na lista.
+   - Navegue até o local onde o Apache Tomcat está instalado e adicione-o como servidor.
+   - Agora, vá até o painel **Servers** e adicione o **Tomcat** à sua configuração de projeto clicando com o botão direito e selecionando **Add and Remove** para adicionar o projeto ao servidor.
 
 2. **Executando o servidor local**
-   - Com o Tomcat configurado, clique no ícone de execução verde para iniciar o servidor.
-   - O IntelliJ abrirá um console onde você verá as mensagens de log do servidor. Se tudo estiver configurado corretamente, você verá a mensagem indicando que o servidor foi iniciado com sucesso.
+   - Com o Tomcat configurado, clique com o botão direito no projeto e selecione **Run As > Run on Server**.
+   - O Eclipse abrirá um console onde você verá as mensagens de log do servidor. Se tudo estiver configurado corretamente, você verá a mensagem indicando que o servidor foi iniciado com sucesso.
    - Abra um navegador e acesse `http://localhost:8080/hello` para verificar o funcionamento do servlet que criamos.
 
 3. **Verificação do funcionamento do servidor**
-   - Acesse a página inicial do Tomcat ou verifique os logs no console do IntelliJ para confirmar que o servidor está funcionando corretamente.
+   - Acesse a página inicial do Tomcat ou verifique os logs no console do Eclipse para confirmar que o servidor está funcionando corretamente.
 
 #### **Perguntas:**
 1. **Por que é necessário um servidor de aplicação local para o desenvolvimento web?**
    - O servidor local permite testar e depurar a aplicação antes de ela ser implantada em um ambiente de produção, proporcionando um ambiente controlado para desenvolvimento.
 
 2. **Quais são os passos para configurar o Apache Tomcat como servidor local?**
-   - Instalar o Tomcat, configurar no IntelliJ IDEA e adicionar o artefato do projeto para ser executado no servidor.
+   - Instalar o Tomcat, configurá-lo no Eclipse e adicionar o projeto para ser executado no servidor.
 
 3. **Como verificar se o servidor local está funcionando corretamente?**
-   - A verificação pode ser feita acessando o navegador em `http://localhost:8080/` ou verificando os logs do servidor no console.
+   - A verificação pode ser feita acessando o navegador em `http://localhost:8080/` ou verificando os logs do servidor no console do Eclipse.
+
+---
+
+### **3.2 Configuração e Execução do Servidor de Aplicação Local (Apache Tomcat)**
+
+Agora que temos a estrutura do projeto, vamos configurar o servidor de aplicação **Apache Tomcat** para rodar e testar nossa aplicação localmente.
+
+#### **Passo a Passo para Configurar e Executar o Tomcat:**
+
+1. **Configuração do Tomcat no Eclipse**
+   - No **Eclipse**, acesse **Window > Preferences > Server > Runtime Environments**.
+   - Clique em **Add** e selecione **Apache Tomcat** na lista.
+   - Escolha a versão do **Tomcat** e configure o caminho para o diretório onde o Apache Tomcat foi instalado no seu sistema.
+   - Após configurar o Tomcat, vá para o painel **Servers**.
+   - Adicione o Tomcat como servidor clicando com o botão direito em **Servers** e selecionando **New > Server > Apache Tomcat**. 
+   - Adicione o seu projeto ao servidor clicando com o botão direito no nome do servidor e selecionando **Add and Remove**. Mova o seu projeto para o lado da implantação.
+
+2. **Executando o servidor local**
+   - Com o Tomcat configurado, clique com o botão direito no servidor no painel **Servers** e selecione **Start** ou **Run As > Run on Server**.
+   - O **Eclipse** abrirá um console onde você verá as mensagens de log do servidor. Se tudo estiver configurado corretamente, você verá uma mensagem indicando que o servidor foi iniciado com sucesso.
+   - Abra um navegador e acesse `http://localhost:8080/hello` para verificar o funcionamento do servlet que criamos.
+
+3. **Verificação do funcionamento do servidor**
+   - Acesse a página inicial do Tomcat ou verifique os logs no console do **Eclipse** para confirmar que o servidor está funcionando corretamente.
+
+#### **Perguntas:**
+1. **Por que é necessário um servidor de aplicação local para o desenvolvimento web?**
+   - O servidor local permite testar e depurar a aplicação antes de ela ser implantada em um ambiente de produção, proporcionando um ambiente controlado para desenvolvimento.
+
+2. **Quais são os passos para configurar o Apache Tomcat como servidor local?**
+   - Instalar o Tomcat, configurá-lo no **Eclipse** e adicionar o projeto ao servidor para que ele possa ser executado localmente.
+
+3. **Como verificar se o servidor local está funcionando corretamente?**
+   - A verificação pode ser feita acessando o navegador em `http://localhost:8080/` ou verificando os logs do servidor no console do **Eclipse**.
 
 ---
 
 ### **3.3 Verificação do Ambiente de Desenvolvimento**
 
-Depois de configurar e executar o servidor local, é importante garantir que todo o ambiente de desenvolvimento esteja configurado corretamente, para que o fluxo de trabalho seja eficiente.
+Depois de configurar e executar o servidor local, é importante garantir que todo o ambiente de desenvolvimento esteja corretamente configurado, para que o fluxo de trabalho seja eficiente.
 
 #### **Checklist para Verificação:**
 - Verifique se a versão correta do **JDK** está instalada.
-- Confirme se o **IntelliJ IDEA** está configurado e funcionando corretamente.
-- Certifique-se de que o **Tomcat** está rodando e que o projeto foi implantado corretamente.
+- Confirme se o **Eclipse** está configurado e funcionando corretamente.
+- Certifique-se de que o **Apache Tomcat** está rodando e que o projeto foi implantado corretamente.
 - Execute o servlet criado e verifique se ele responde corretamente no navegador.
 
 #### **Execução de um Exemplo Simples**
@@ -394,19 +429,18 @@ Depois de configurar e executar o servidor local, é importante garantir que tod
 
 #### **Perguntas:**
 1. **Por que é crucial verificar se o ambiente de desenvolvimento está corretamente configurado?**
-   - A verificação garante que todos os componentes estão prontos para o desenvolvimento, evitando erros futuros que possam atrasar o progresso do projeto.
+   - A verificação garante que todos os componentes estão prontos para o desenvolvimento, evitando problemas futuros que possam atrasar o progresso do projeto.
 
 2. **Quais são os itens incluídos em um checklist para verificar o ambiente de desenvolvimento?**
-   - O checklist inclui a verificação do JDK, da IDE IntelliJ, do servidor local (Tomcat) e da execução correta do projeto.
+   - O checklist inclui a verificação do JDK, da IDE **Eclipse**, do servidor local (Tomcat) e da execução correta do projeto.
 
 3. **Como executar um exemplo simples para confirmar o funcionamento do ambiente?**
    - Um exemplo como o "Hello, World!" pode ser executado para garantir que o servidor está funcionando corretamente e que o ambiente está pronto para o desenvolvimento.
 
-
 ---
 
 <a name="4"></a>
-## **4. Atividade Prática 1: Criando uma Página de Index e Tratamento de Erros 404**
+## **4. Atividade Prática 1: Criando uma Página de Índice e Tratamento de Erros 404**
 
 ### **Objetivo da Atividade:**
 O objetivo desta atividade é ampliar suas habilidades em desenvolvimento web utilizando **Servlets** e **páginas HTML**. Você criará uma página de índice (`index.html`) para a aplicação, configurará um servlet para processar a página inicial e, em seguida, criará uma página personalizada para o tratamento de erros 404 (`error.html`), que será exibida quando um recurso não for encontrado.
@@ -415,7 +449,7 @@ O objetivo desta atividade é ampliar suas habilidades em desenvolvimento web ut
 
 #### **1. Criação da Página Inicial (index.html)**
 
-- No diretório **webapp** ou **WebContent**, crie um arquivo chamado `index.html`.
+- No diretório **WebContent** (ou **webapp**, dependendo da configuração), crie um arquivo chamado `index.html`.
 - Adicione o seguinte conteúdo HTML simples:
   ```html
   <!DOCTYPE html>
@@ -434,8 +468,9 @@ O objetivo desta atividade é ampliar suas habilidades em desenvolvimento web ut
   ```
 
 #### **2. Modificando o Servlet "HelloServlet"**
-- Você já tem o servlet `HelloServlet` criado na Atividade Prática 1. Agora, ele continuará funcionando para a URL `/hello`.
-- Certifique-se de que o servlet está mapeado corretamente no `web.xml`, conforme foi feito na Atividade Prática 1:
+
+- Se você já criou o servlet `HelloServlet` na Atividade Prática anterior, ele continuará funcionando para a URL `/hello`.
+- Certifique-se de que o servlet está mapeado corretamente no arquivo **`web.xml`** dentro da pasta **WEB-INF**:
   ```xml
   <servlet>
       <servlet-name>HelloServlet</servlet-name>
@@ -449,7 +484,7 @@ O objetivo desta atividade é ampliar suas habilidades em desenvolvimento web ut
 
 #### **3. Criação da Página de Erro 404 (error.html)**
 
-- No diretório **webapp** ou **WebContent**, crie um arquivo chamado `error.html` para tratar o erro 404 (página não encontrada).
+- No diretório **WebContent**, crie um arquivo chamado `error.html` para tratar o erro 404 (página não encontrada).
 - Adicione o seguinte conteúdo HTML:
   ```html
   <!DOCTYPE html>
@@ -469,7 +504,7 @@ O objetivo desta atividade é ampliar suas habilidades em desenvolvimento web ut
 
 #### **4. Configuração do Tratamento de Erros no `web.xml`**
 
-- Para exibir a página personalizada `error.html` em caso de erro 404, adicione a seguinte configuração ao arquivo `web.xml`:
+- Para exibir a página personalizada `error.html` em caso de erro 404, adicione a seguinte configuração ao arquivo **`web.xml`**:
   ```xml
   <error-page>
       <error-code>404</error-code>
@@ -479,23 +514,16 @@ O objetivo desta atividade é ampliar suas habilidades em desenvolvimento web ut
 
 #### **5. Testando a Aplicação**
 
-1. **Executando o Projeto no Tomcat**:
-   - Certifique-se de que o **Apache Tomcat** está configurado e rodando no IntelliJ (conforme a Atividade Prática 1).
+1. **Executando o Projeto no Tomcat:**
+   - Certifique-se de que o **Apache Tomcat** está configurado no **Eclipse**. Se o Tomcat ainda não estiver configurado, vá em **Window > Preferences > Server > Runtime Environments**, adicione o **Apache Tomcat** e configure o caminho de instalação.
+   - Após a configuração, clique com o botão direito no projeto, selecione **Run As > Run on Server** e escolha o servidor Tomcat.
    - Ao acessar `http://localhost:8080/`, a página `index.html` deve ser carregada.
 
-2. **Testando o Servlet**:
+2. **Testando o Servlet:**
    - Acesse `http://localhost:8080/hello` para garantir que o servlet está funcionando e exibindo a mensagem "Hello, World!".
 
-3. **Testando o Erro 404**:
+3. **Testando o Erro 404:**
    - Tente acessar uma URL inexistente, como `http://localhost:8080/inexistente`. O servidor deve exibir a página `error.html` com a mensagem de erro 404.
-
-
-### **6. Avaliação**:
-Você será avaliado com base nos seguintes critérios:
-- **Criação e funcionalidade** da página inicial (`index.html`).
-- **Configuração correta** e funcionamento do servlet.
-- **Tratamento de erros** adequado para o erro 404, exibindo a página `error.html`.
-
 
 ---
 
@@ -503,23 +531,19 @@ Você será avaliado com base nos seguintes critérios:
 ## **5. Atividade Prática 2: Criando uma Aplicação Web de Cadastro de Produtos**
 
 ### **Objetivo da Atividade:**
-O objetivo desta atividade é garantir que você adquira as habilidades necessárias para configurar corretamente o ambiente de desenvolvimento e criar um projeto web funcional. Neste exemplo, você desenvolverá uma aplicação web de **Cadastro de Produtos** usando **Java** e **Apache Tomcat** no **IntelliJ IDEA**. A aplicação será simples, mas com um formulário de cadastro que envia os dados para um servlet, o qual os processa e exibe de volta ao usuário.
+O objetivo desta atividade é garantir que você adquira as habilidades necessárias para configurar corretamente o ambiente de desenvolvimento e criar um projeto web funcional. Neste exemplo, você desenvolverá uma aplicação web de **Cadastro de Produtos** usando **Java** e **Apache Tomcat** no **Eclipse**. A aplicação será simples, mas com um formulário de cadastro que envia os dados para um servlet, o qual os processa e exibe de volta ao usuário.
 
 ### **Passo a Passo da Atividade:**
 
-#### **1. Criação do Projeto Web no IntelliJ IDEA**
-- Abra o **IntelliJ IDEA** e selecione **New Project**.
-- Na tela de seleção de tipo de projeto, escolha **Java Enterprise**.
-- Selecione **Web Application** e configure o projeto:
-  - **Nome do Projeto**: Escolha um nome, como `CadastroDeProdutos`.
-  - **Localização do Projeto**: Selecione o diretório onde o projeto será salvo.
-  - **JDK**: Certifique-se de que a versão correta do JDK está selecionada.
-  - **Servidor**: Selecione **Apache Tomcat** e verifique se o caminho do Tomcat está correto.
-  - Clique em **Finish** para criar o projeto.
+#### **1. Criação do Projeto Web no Eclipse**
+- Abra o **Eclipse** e selecione **File > New > Dynamic Web Project**.
+- Configure o nome do projeto (por exemplo, `CadastroDeProdutos`) e selecione a versão do **JDK** que foi previamente configurada.
+- Escolha **Apache Tomcat** como o servidor de destino.
+- Defina o local onde o projeto será salvo e clique em **Finish** para criar o projeto.
 
 #### **2. Criando o Formulário de Cadastro de Produtos (HTML)**
 
-- No diretório **webapp** ou **WebContent**, crie um arquivo HTML chamado `cadastro-produto.html`.
+- No diretório **WebContent**, crie um arquivo HTML chamado `cadastro-produto.html`.
 - Adicione o seguinte conteúdo ao arquivo para criar um formulário simples de cadastro de produtos:
   ```html
   <!DOCTYPE html>
@@ -544,7 +568,7 @@ O objetivo desta atividade é garantir que você adquira as habilidades necessá
 
 #### **3. Criando o Servlet para Processar o Formulário**
 
-- No diretório `src`, crie um pacote chamado `com.meuprojeto.web`.
+- No diretório **src**, crie um pacote chamado `com.meuprojeto.web`.
 - Dentro do pacote, crie uma classe Java chamada `CadastroProdutoServlet`:
   ```java
   package com.meuprojeto.web;
@@ -590,10 +614,8 @@ O objetivo desta atividade é garantir que você adquira as habilidades necessá
 
 #### **5. Configuração e Execução do Servidor Local (Tomcat)**
 
-- Certifique-se de que o **Tomcat** está configurado no IntelliJ.
-- Para rodar o servidor, clique em **Run > Edit Configurations**.
-- Selecione o **Tomcat Server** e adicione a configuração do seu projeto.
-- Clique em **Run** (ícone verde) para iniciar o servidor.
+- Certifique-se de que o **Apache Tomcat** está configurado no **Eclipse**. Caso não esteja, vá para **Window > Preferences > Server > Runtime Environments**, adicione o Tomcat e configure o diretório de instalação.
+- Para rodar o servidor, clique com o botão direito no projeto e selecione **Run As > Run on Server**.
 - Abra o navegador e acesse `http://localhost:8080/cadastro-produto.html`. Preencha o formulário com os dados do produto e clique em **Cadastrar**.
 
 #### **6. Testando a Aplicação**
@@ -604,34 +626,28 @@ O objetivo desta atividade é garantir que você adquira as habilidades necessá
 
 #### **7. Verificação do Ambiente de Desenvolvimento**
 - Após a execução do projeto, faça uma revisão completa do ambiente para garantir que tudo está funcionando corretamente. Verifique:
-  - O JDK está configurado corretamente.
-  - O IntelliJ IDEA está funcionando sem erros.
-  - O Apache Tomcat foi corretamente configurado e está rodando.
+  - O **JDK** está configurado corretamente.
+  - O **Eclipse** está funcionando sem erros.
+  - O **Apache Tomcat** foi corretamente configurado e está rodando.
   - O servlet responde corretamente ao envio do formulário.
 
 ---
 
-### **Avaliação**:
-Você será avaliado com base nos seguintes critérios:
-- **Criação correta** do formulário e processamento dos dados pelo servlet.
-- **Configuração e execução** corretas do servidor Tomcat.
-- **Funcionalidade da aplicação**, incluindo o envio e a exibição dos dados do produto cadastrado.
-
+<a name="6"></a>
+Aqui está a **Atividade Prática 3** com a inclusão dos **Servlets**, adaptada para o uso do **Eclipse**:
 
 ---
 
-
-<a name="6"></a>
-## **6. Atividade Prática 3: Criando um Menu de Navegação para Páginas Estáticas**
+## **6. Atividade Prática 3: Criando um Menu de Navegação e Servlets para Páginas de Cadastro e Lista de Clientes**
 
 ### **Objetivo da Atividade:**
-O objetivo desta atividade é expandir a estrutura da aplicação web com a criação de uma página inicial que contém um menu de navegação para outras páginas estáticas: **Cadastro de Clientes** e **Lista de Clientes**. Essa atividade ajudará você a entender como criar uma estrutura de navegação básica em uma aplicação web.
+O objetivo desta atividade é expandir a estrutura da aplicação web com a criação de uma página inicial que contém um menu de navegação para outras páginas: **Cadastro de Clientes** e **Lista de Clientes**. Além disso, você criará dois **Servlets** que processam e exibem os dados para essas páginas, simulando a interação básica de navegação e processamento de dados.
 
 ### **Passo a Passo da Atividade:**
 
 #### **1. Modificando a Página Inicial (index.html)**
 
-- Atualize o arquivo `index.html` criado na Atividade 2 para incluir um menu de navegação. O menu deve ter links para as páginas **Cadastro de Clientes** e **Lista de Clientes**:
+- Atualize o arquivo `index.html` para incluir um menu de navegação. O menu deve ter links para as páginas **Cadastro de Clientes** e **Lista de Clientes**:
   ```html
   <!DOCTYPE html>
   <html lang="pt-br">
@@ -644,67 +660,107 @@ O objetivo desta atividade é expandir a estrutura da aplicação web com a cria
       <h1>Bem-vindo à Página Inicial</h1>
       <p>Escolha uma das opções abaixo:</p>
       <ul>
-          <li><a href="/cadastro-clientes.html">Cadastro de Clientes</a></li>
-          <li><a href="/lista-clientes.html">Lista de Clientes</a></li>
+          <li><a href="/cadastro-clientes">Cadastro de Clientes</a></li>
+          <li><a href="/lista-clientes">Lista de Clientes</a></li>
       </ul>
   </body>
   </html>
   ```
 
-#### **2. Criando a Página de Cadastro de Clientes (cadastro-clientes.html)**
+#### **2. Criando a Página de Cadastro de Clientes com Servlet**
 
-- No diretório **webapp** ou **WebContent**, crie um novo arquivo HTML chamado `cadastro-clientes.html`.
-- Adicione o seguinte conteúdo para simular uma página de cadastro:
-  ```html
-  <!DOCTYPE html>
-  <html lang="pt-br">
-  <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Cadastro de Clientes</title>
-  </head>
-  <body>
-      <h1>Cadastro de Clientes</h1>
-      <p>Aqui você poderá cadastrar novos clientes (em breve).</p>
-      <a href="/">Voltar à Página Inicial</a>
-  </body>
-  </html>
+##### **2.1 Criação do Servlet para Cadastro de Clientes**
+
+- No diretório **src**, crie um pacote chamado `com.meuprojeto.web`.
+- Dentro do pacote, crie uma classe Java chamada `CadastroClienteServlet`:
+  ```java
+  package com.meuprojeto.web;
+
+  import javax.servlet.ServletException;
+  import javax.servlet.http.HttpServlet;
+  import javax.servlet.http.HttpServletRequest;
+  import javax.servlet.http.HttpServletResponse;
+  import java.io.IOException;
+  import java.io.PrintWriter;
+
+  public class CadastroClienteServlet extends HttpServlet {
+      protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+          response.setContentType("text/html");
+          PrintWriter out = response.getWriter();
+          out.println("<h1>Cadastro de Clientes</h1>");
+          out.println("<p>Aqui você poderá cadastrar novos clientes (em breve).</p>");
+          out.println("<a href='/'>Voltar à Página Inicial</a>");
+      }
+  }
   ```
 
-#### **3. Criando a Página de Lista de Clientes (lista-clientes.html)**
+##### **2.2 Configuração do Servlet no `web.xml`**
 
-- No diretório **webapp** ou **WebContent**, crie outro arquivo HTML chamado `lista-clientes.html`.
-- Adicione o seguinte conteúdo para simular uma página de listagem de clientes:
-  ```html
-  <!DOCTYPE html>
-  <html lang="pt-br">
-  <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Lista de Clientes</title>
-  </head>
-  <body>
-      <h1>Lista de Clientes</h1>
-      <p>Aqui você verá a lista de clientes cadastrados (em breve).</p>
-      <a href="/">Voltar à Página Inicial</a>
-  </body>
-  </html>
+- No diretório **WEB-INF**, abra o arquivo `web.xml` (ou crie-o, caso ainda não exista).
+- Adicione o mapeamento do servlet para **Cadastro de Clientes**:
+  ```xml
+  <servlet>
+      <servlet-name>CadastroClienteServlet</servlet-name>
+      <servlet-class>com.meuprojeto.web.CadastroClienteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+      <servlet-name>CadastroClienteServlet</servlet-name>
+      <url-pattern>/cadastro-clientes</url-pattern>
+  </servlet-mapping>
   ```
 
-#### **4. Testando a Navegação**
+#### **3. Criando a Página de Lista de Clientes com Servlet**
 
-1. **Executando o Projeto no Tomcat**:
-   - Certifique-se de que o **Apache Tomcat** está rodando e que o projeto foi corretamente implantado no IntelliJ.
+##### **3.1 Criação do Servlet para Lista de Clientes**
+
+- No diretório **src**, crie uma classe Java chamada `ListaClienteServlet` dentro do pacote `com.meuprojeto.web`:
+  ```java
+  package com.meuprojeto.web;
+
+  import javax.servlet.ServletException;
+  import javax.servlet.http.HttpServlet;
+  import javax.servlet.http.HttpServletRequest;
+  import javax.servlet.http.HttpServletResponse;
+  import java.io.IOException;
+  import java.io.PrintWriter;
+
+  public class ListaClienteServlet extends HttpServlet {
+      protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+          response.setContentType("text/html");
+          PrintWriter out = response.getWriter();
+          out.println("<h1>Lista de Clientes</h1>");
+          out.println("<p>Aqui você verá a lista de clientes cadastrados (em breve).</p>");
+          out.println("<a href='/'>Voltar à Página Inicial</a>");
+      }
+  }
+  ```
+
+##### **3.2 Configuração do Servlet no `web.xml`**
+
+- Adicione o mapeamento do servlet para **Lista de Clientes** no arquivo **`web.xml`**:
+  ```xml
+  <servlet>
+      <servlet-name>ListaClienteServlet</servlet-name>
+      <servlet-class>com.meuprojeto.web.ListaClienteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+      <servlet-name>ListaClienteServlet</servlet-name>
+      <url-pattern>/lista-clientes</url-pattern>
+  </servlet-mapping>
+  ```
+
+#### **4. Testando a Navegação e os Servlets**
+
+1. **Executando o Projeto no Tomcat:**
+   - Certifique-se de que o **Apache Tomcat** está rodando e que o projeto foi corretamente implantado no **Eclipse**. Caso o Tomcat ainda não esteja configurado, vá para **Window > Preferences > Server > Runtime Environments** e adicione o Tomcat.
+   - Execute o projeto clicando com o botão direito no nome do projeto e selecionando **Run As > Run on Server**.
    - Acesse `http://localhost:8080/` para ver a página inicial com o menu.
 
-2. **Testando a Navegação entre Páginas**:
-   - Clique nos links **Cadastro de Clientes** e **Lista de Clientes** para verificar se as páginas HTML correspondentes estão sendo carregadas corretamente.
-   - Use o link "Voltar à Página Inicial" em cada página para retornar ao menu principal.
+2. **Testando a Navegação entre Páginas:**
+   - Clique nos links **Cadastro de Clientes** e **Lista de Clientes** para verificar se os **Servlets** correspondentes estão funcionando e exibindo as mensagens.
+   - Use o link "Voltar à Página Inicial" em cada servlet para retornar ao menu principal.
 
-### **5. Avaliação**:
-Você será avaliado com base nos seguintes critérios:
-- **Criação correta** das páginas HTML e da navegação entre elas.
-- **Funcionalidade do menu** na página inicial, permitindo a navegação para as páginas "Cadastro de Clientes" e "Lista de Clientes".
-- **Retorno adequado** à página inicial através dos links "Voltar à Página Inicial" nas páginas de cadastro e lista.
+
+
 
 
